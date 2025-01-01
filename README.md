@@ -199,7 +199,7 @@ GPT 와 BERT는 사전 학습된 언어 모델을 다양한 NLP 작업에 적용
 
 GPT같은 경우는 기본적으로 생성형 모델이기 때문에 번역, 요약과 같은 생성형 작업(task)은 바로 적용이 가능하다. 하지만, GPT는 여기서 그치지 않고 분류, 유사도 계산 등의 다른 테스크에도 GPT 모델을 활용하는 방법을 몇 가지 제시하였다.
 
-![How to apply GPT for downstream tasks (Figure from the GPT1 paper)](/assets/7.png)
+![How to apply GPT for downstream tasks (Figure from the GPT1 paper)](/assets/8.png)
 
 How to apply GPT for downstream tasks (Figure from the GPT1 paper)
 
@@ -233,7 +233,7 @@ How to apply GPT for downstream tasks (Figure from the GPT1 paper)
 
 BERT는 Text 입력을 숫자(vextor)로 바꾸는 것에 매우 특화되어 있기 때문에 흔히 말하는 분류형 테스크 들에는 매우 탁월하게 적용된다. 미리 학습된 BERT모델을 불러와 미세 조정을 통해 입력된 문제의 맥락을 더욱 정확하게 파악하고, 특정 작업에 필요한 결과를 얻어낼 수 있다. 특히 자연어 이해(Natural Language Understanding, NLU) 작업에서 강력한 성능을 보여주며, 여러 NLP 벤치마크에서 최고 성능을 보여주었다.
 
-![How to apply BERT for downstream task(Figure from the BERT paper)](/assets/8.png)
+![How to apply BERT for downstream task(Figure from the BERT paper)](/assets/9.png)
 
 How to apply BERT for downstream task(Figure from the BERT paper)
 
@@ -288,7 +288,7 @@ Autoregressive Models
 
 Autoregressive(AR) 모델은 이전의 정보를 바탕으로 다음 데이터 포인트를 예측하는 방식을 말한다. 위에서 살펴봤던 언어 모델링 패턴, 즉 뒤의 단어열을 기반으로 다음 단어를 예측하고, 예측된 단어를 포함한 기존 단어열을 바탕으로 다시 또 다음 단어를 예측해 나가는 방식이다.
 
-![Autoregressive Language modeling](/assets/9.png)
+![Autoregressive Language modeling](/assets/10.png)
 
 Autoregressive Language modeling
 
@@ -318,7 +318,7 @@ Transformer Decoder Only 구조
 
 전통적인 Transformer 모델은 인코더와 디코더 두 부분으로 구성된다. 그러나 GPT는 디코더 구성 요소만을 사용하여 전체 모델을 구성하는 ’decoder only’ 접근 방식을 채택한다. 이 구조는 입력 시퀀스를 받아 각 시점에서 이전의 모든 출력을 참고하여 다음 출력을 생성하는 방식으로 작동한다. 이 단일 디코더 구조는 모델의 효율성을 높이며, 계산 자원을 더욱 집중적으로 사용할 수 있게 한다.
 
-![GPT1 Architecture form the Original Transformer](/assets/10.png)
+![GPT1 Architecture form the Original Transformer](/assets/11.png)
 
 GPT1 Architecture form the Original Transformer
 
@@ -360,7 +360,7 @@ BERT는 Google AI에 의해 개발된 모델로, 트랜스포머의 인코더 �
 
 BERT는 전통적인 언어 모델과는 다른 접근 방식을 채택한다. BERT의 핵심 특징 중 하나는 Masked Language Model (MLM)이다. 이 방식에서 일부 단어는 ‘마스크’ 처리되며, 모델은 주어진 문맥 안에서 이 마스크된 단어를 예측해야한다. 예를 들어, 문장 “The [MASK] brown fox jumps”에서 BERT는 [MASK] 위치에 들어갈 적합한 단어를 예측한다. 즉 original 텍스트인 “The quick brown fox jumps”라는 문장에 적절히 mask를 씌워서 수 많은 문제-답 쌍을 만들어 낸다. 만약, 언어를 충분히 배워낸 BERT라면 [MASK]에 해당하는 어휘를 주변 문맥으로 부터 배워낼 수 있을 것이다.
 
-![Masked Language Model in BERT](/assets/11.png)
+![Masked Language Model in BERT](/assets/12.png)
 
 Masked Language Model in BERT
 
@@ -379,7 +379,7 @@ Masked Language Model in BERT
 
 이 두 문장에 대해서는 ‘이어질 수 있는 문장인가’ 라는 질문에 BERT는 “no”를 예측할 수 있도록 학습된다. 실제로 문장 A와 문장 B는 서로 이어지지 않는 문장을 서로 다른 문서로부터 랜덤하게 가져왔기 때문이다.
 
-![Next Sentence prediction Model in BERT](/assets/12.png)
+![Next Sentence prediction Model in BERT](/assets/13.png)
 
 Next Sentence prediction Model in BERT
 
@@ -390,7 +390,7 @@ Transformer Encoder Only구조
 BERT는 전통적인 트랜스포머의 인코더 구성 요소만을 사용한다. 하지만 단순하게 그대로 가져다 쓰는 형태는 아니다. 내부 트랜스포머 인코더 블록은 원형 그대로 유지되나, 입력되는 임베딩 레이어에 몇 가지 변화가 추가되었고, 인코더 블록의 최상단에서 결과를 받아 예측 및 결과를 내놓기 위한 부분이 추가 되었다. 
 하나씩 살펴보자면
 
-![BERT Architecture form Transformer](/assets/13.png)
+![BERT Architecture form Transformer](/assets/14.png)
 
 BERT Architecture form Transformer
 
@@ -399,7 +399,7 @@ Segmert 정보
 Segment Embedding은 BERT 모델이 두 개의 문장을 구분할 수 있도록 도와주는 정보이다. 예를 들어, BERT가 “문장 A”와 “문장 B”를 함계 처리할 때 각 문장이 어디까지인지 알아야 한다. 이 때, Segment Embedding은 “문장 A는 0번”, “문장 B는 1번” 처럼 표시해 BERT 각 문장을 구분할 수 있게 해준다.
 이 과정에서 [SEP] 토큰은 두 문장의 경계를 명확히 표시해준다. 이렇게 하면 BERT는 두 문장을 한 번에 입력 받아도 문장들이 어디서 시작되고 끝나는지를 이해할 수 있다.
 
-![Embedding in BERT](/assets/14.png)
+![Embedding in BERT](/assets/15.png)
 
 Embedding in BERT
 
@@ -419,7 +419,7 @@ Pooler는 BERT가 문장의 전체 의미를 잘 요약할 수 있도록 돕는 
 Pooler는 입력된 문장의 첫 번째 토큰은 [CLS]의 출력 벡터를 가져와 이 벡터를 문장 전체 표현으로 사용한다. 이 벡터는 Pooler를 통해 한번 더 처리되며, 문장 분류와 같은 작업에 적합하게 만들어진다. 쉽게 말해, Pooler는 문장의 대표적인 의미를 뽑아내며 BERT가 문장 수준의 작업을 더 잘할 수 있도록 도와준다.
  최종 출력 벡터를 추가가공하여 다양한 다운스트림 작업에서 활용할 수 있는 것이다. 특히 분류, 회귀 문제 등에서 이를 바로 활용할 수 있다.
 
-![BERT Pooler](/assets/15.png)
+![BERT Pooler](/assets/16.png)
 
 
 
